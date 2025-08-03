@@ -14,3 +14,12 @@ If you are developing a production application, we recommend using TypeScript wi
 - Created Vite+React app
 - Installed Tailwind CSS
 - Installed DaisyUI and added navbar component 
+- Installed React router DOM
+- Navigation overview
+  Body 
+    NavBar
+    Route = / Feed
+    Route = /login Login
+    Route = /signup Signup
+    Route = /connections Connections
+    Route = /profile 

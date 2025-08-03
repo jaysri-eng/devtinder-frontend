@@ -1,8 +1,8 @@
 function NavBar() {
     return (
         <>
-            <div className="navbar bg-base-300 shadow-sm">
-            <div className="flex-1">
+            <div className="navbar bg-base-300 shadow-sm justify-between">
+            <div className="flex">
                 <a className="btn btn-ghost text-xl">Devinder</a>
             </div>
             <div className="flex gap-2">
