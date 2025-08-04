@@ -4,20 +4,24 @@ import { useDispatch } from "react-redux";
 import { addUser } from "./utils/userSlice";
 import { useNavigate } from "react-router-dom";
 
-function Login(){
+function Signup(){
     const [emailId, setEmailId] = useState("jayanth@gmail.com");
     const [password,setPassword] = useState("Jayanth@123");
+    const [firstName,setFirstName] = useState("Jayanth@123");
+    const [lastName,setLastName] = useState("Jayanth@123");
     const [error,setError] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleLoginClick = async () => {
+    const handleSignupClick = async () => {
         try{
-            const res = await axios.post("http://localhost:3000/login",{
+            const res = await axios.post("http://localhost:3000/signup",{
                 emailId,
-                password
+                password,
+                firstName,
+                lastName
             },{withCredentials: true});
-            dispatch(addUser(res.data));
+            dispatch(addUser(res.data.data));
             if(res.status == 200){
                 return navigate("/");
             }
@@ -31,7 +35,7 @@ function Login(){
         <div className="flex justify-center my-20">
             <div className="card bg-base-300 w-96 shadow-sm">
             <div className="card-body">
-                <h2 className="card-title">Login</h2>
+                <h2 className="card-title">Signup</h2>
                 <div>
                 <input
                     type="text"
@@ -47,14 +51,28 @@ function Login(){
                     className="input input-primary"
                     onChange={(e)=>setPassword(e.target.value)}
                 />
+                <input
+                    type="text"
+                    value={firstName}
+                    placeholder="First name"
+                    className="input input-primary"
+                    onChange={(e)=>setFirstName(e.target.value)}
+                />
+                <input
+                    type="text"
+                    value={lastName}
+                    placeholder="Last name"
+                    className="input input-primary"
+                    onChange={(e)=>setLastName(e.target.value)}
+                />
                 </div>
                 <p className="text-red-500">{error}</p>
                 <div className="card-actions justify-end my-5">
-                    <button onClick={handleLoginClick} className="btn btn-primary">Submit</button>
+                    <button onClick={handleSignupClick()} className="btn btn-primary">Submit</button>
                 </div>
             </div>
             </div>
         </div>
     );
 }
-export default Login
+export default Signup
