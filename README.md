@@ -23,3 +23,8 @@ If you are developing a production application, we recommend using TypeScript wi
     Route = /signup Signup
     Route = /connections Connections
     Route = /profile 
+- Installed Axios for api calling
+- CORS - solve CORS error in backend -> add middleware with configs, credentials: true and add your   local dev env url to whitelist it 
+- Pass {withCredentials:true} to Axios call
+- Installed Redux
+- Created a redux store, reducer and slice
